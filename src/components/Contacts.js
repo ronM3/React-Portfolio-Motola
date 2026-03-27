@@ -13,49 +13,73 @@ const Contacts = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const form = useRef();
+  const form = useRef(null);
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
-    if (name === "") {
+    setSuccess(false);
+    setErrorMsg("");
+
+    const emailJsPublicKey =
+      process.env.REACT_APP_EMAILJS_PUBLIC_KEY ||
+      process.env.REACT_APP_EMAIL_KEY;
+    const emailJsServiceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const emailJsTemplateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+
+    if (name.trim() === "") {
       setNameError(true);
-      return false;
+      return;
     }
     setNameError(false);
-    if (!isEmail(email)) {
+    if (!isEmail(email.trim())) {
       setEmailError(true);
-      return false;
+      return;
     }
     setEmailError(false);
-    if (message === "") {
+    if (message.trim() === "") {
       setMsgError(true);
-      return false;
+      return;
     }
     setMsgError(false);
-    emailjs
-      .sendForm(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-        form.current,
-        process.env.REACT_APP_EMAIL_KEY
-      )
-      .then(
-        (result) => {
-          setSuccess(true);
-          setErrorMsg("");
-          setName("");
-          setEmail("");
-          setMessage("");
-          console.log(form.current);
-          setTimeout(() => {
-            form.current.reset();
-            setSuccess(false);
-          }, 1300);
-        },
-        (error) => {
-          setErrorMsg(error.text);
-        }
+
+    if (!form.current) {
+      setErrorMsg("Contact form is unavailable. Please refresh and try again.");
+      return;
+    }
+
+    if (!emailJsPublicKey || !emailJsServiceId || !emailJsTemplateId) {
+      setErrorMsg(
+        "Contact form is not configured. Check the EmailJS values in .env."
       );
+      return;
+    }
+
+    try {
+      await emailjs.sendForm(
+        emailJsServiceId,
+        emailJsTemplateId,
+        form.current,
+        emailJsPublicKey
+      );
+
+      setSuccess(true);
+      setName("");
+      setEmail("");
+      setMessage("");
+
+      setTimeout(() => {
+        setSuccess(false);
+      }, 1300);
+    } catch (error) {
+      const nextError =
+        error?.text === "Account not found"
+          ? "EmailJS rejected the configured public key. Update the EmailJS public key in .env."
+          : error?.text ||
+            "Message could not be sent. Check your EmailJS settings and try again.";
+
+      setErrorMsg(nextError);
+      console.error("EmailJS send failed", error);
+    }
   };
   return (
     <Col size={4} sm={6}>
@@ -76,6 +100,7 @@ const Contacts = () => {
                 type="text"
                 name="name"
                 className="form-input input_box"
+                value={name}
                 onChange={(e) => setName(e.target.value)}
               />
               {nameError && (
@@ -91,6 +116,7 @@ const Contacts = () => {
                 type="email"
                 name="email"
                 className="form-input input_box"
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               {emailError && (
@@ -106,6 +132,7 @@ const Contacts = () => {
                 type="text"
                 name="message"
                 className="form-message message_box"
+                value={message}
                 onChange={(e) => setMessage(e.target.value)}
               />
               {msgError && (
@@ -147,6 +174,15 @@ const Contacts = () => {
                 </div>
               </button>
             </div>
+            {errMsg && (
+              <span
+                className="error_msg"
+                role="alert"
+                style={{ position: "static", display: "block", marginTop: "1rem" }}
+              >
+                {errMsg}
+              </span>
+            )}
           </form>
         </div>
       </div>

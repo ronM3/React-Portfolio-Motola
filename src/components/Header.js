@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/Rocket-Black5.webp";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import { AnimationBackground } from "./feature/AnimationBackground";
-import '../styles/banner.css'
+import "../styles/banner.css";
 import { forwardRef } from "react";
 
 export const Header = forwardRef((props, homeSection) => {
@@ -28,11 +28,9 @@ export const Header = forwardRef((props, homeSection) => {
                 existing ones always excites me.
               </p>
               <div className="bt_container">
-                <button onClick={() => console.log("connect")}>
-                  <a href="#contacts">
-                  Let’s Connect <ArrowRightCircle size={25} />
-                  </a>
-                </button>
+                <a href="#contacts" className="banner_cta">
+                  Let's Connect <ArrowRightCircle size={25} />
+                </a>
               </div>
             </div>
           </Col>

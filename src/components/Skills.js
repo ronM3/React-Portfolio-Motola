@@ -5,9 +5,9 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { skillsData } from "../data/skillsData";
 import { SkillCard } from "./SkillCard";
-import Fade from "react-reveal/Fade";
 import { Tecks } from "./Tecks";
 import '../styles/skills.css'
+import Fade from "./feature/Fade";
 
 export const Skills = forwardRef((props, skillsSection) => {
   const [scrolled, setScrolled] = useState(false);

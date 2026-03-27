@@ -126,15 +126,55 @@
   font-size: 28px;
   transition: all 0.3s 0.8s ease-in-out;
 }
-.success_msg {
-  margin-top: 1rem;
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-  font-size: 0.95rem;
-  color: #c6ffd8;
-  font-family: "Poppins", sans-serif;
+.success_card {
+  width: 100%;
+  padding: 2rem 1.5rem;
+  border: 2px solid #7e4ba5;
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(126, 75, 165, 0.28), rgba(33, 33, 33, 0.98));
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
   animation-duration: 0.6s;
   animation-name: fadeInReveal;
+}
+.success_eyebrow {
+  margin-bottom: 0.5rem;
+  color: #c6ffd8;
+  font-size: 0.85rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+}
+.success_title {
+  margin-bottom: 0.75rem;
+  color: #f5ebff;
+  font-size: 2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+.success_copy {
+  margin-bottom: 1.5rem;
+  color: #eaeaea;
+  font-size: 1rem;
+  line-height: 1.7;
+  font-family: "Poppins", sans-serif;
+}
+.success_reset_btn {
+  border: none;
+  outline: none;
+  min-width: 190px;
+  min-height: 48px;
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+  color: #212121;
+  background-color: #c6ffd8;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+.success_reset_btn:hover {
+  transform: scale(1.03);
+  background-color: #e8fff0;
 }
 .error_msg {
   margin-left: 0.25rem;

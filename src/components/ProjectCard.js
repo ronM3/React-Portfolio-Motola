@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
-import Fade from "react-reveal/Fade";
+import Fade from "./feature/Fade";
 
 export const ProjectCard = ({ project }) => {
   const [index, setIndex] = useState(0);

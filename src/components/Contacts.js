@@ -69,7 +69,7 @@ const Contacts = () => {
 
       setTimeout(() => {
         setSuccess(false);
-      }, 1300);
+      }, 2500);
     } catch (error) {
       const nextError =
         error?.text === "Account not found"
@@ -174,6 +174,11 @@ const Contacts = () => {
                 </div>
               </button>
             </div>
+            {success && (
+              <span className="success_msg" role="status" aria-live="polite">
+                Thank you for reaching out. I will get back to you soon.
+              </span>
+            )}
             {errMsg && (
               <span
                 className="error_msg"

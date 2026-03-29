@@ -39,6 +39,9 @@
   }
   .skill_img {
     margin: 0 auto 15px auto;
+    width: 50%;
+    height: auto;
+    display: block;
   }
   .skill_item {
     text-align: center;

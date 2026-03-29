@@ -1,7 +1,68 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import Fade from "./feature/Fade";
+
+/**
+ * Lazy-loads a WebM video only when it scrolls near the viewport.
+ * The outer div reserves a 16:9 aspect-ratio box so the page layout
+ * never shifts when the video element mounts or begins playing.
+ */
+const LazyVideo = ({ src }) => {
+  const containerRef = useRef(null);
+  const [isNearViewport, setIsNearViewport] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    if (!("IntersectionObserver" in window)) {
+      // Fallback for environments without IntersectionObserver
+      setIsNearViewport(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsNearViewport(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        aspectRatio: "16 / 9",
+        background: "#1a1a1a",
+        display: "block",
+        width: "100%",
+      }}
+    >
+      {isNearViewport && (
+        <video
+          width="100%"
+          height="100%"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="none"
+          style={{ display: "block" }}
+        >
+          <source src={src} type="video/webm" />
+        </video>
+      )}
+    </div>
+  );
+};
 
 export const ProjectCard = ({ project }) => {
   const [index, setIndex] = useState(0);
@@ -21,7 +82,7 @@ export const ProjectCard = ({ project }) => {
               </div>
               {project.live ? <a className="live_button" href={project.live}>
                   Visit Live
-                </a> : 
+                </a> :
                 <a className="live_button delete">
                   Visit Live
                 </a>}
@@ -44,9 +105,7 @@ export const ProjectCard = ({ project }) => {
                 return (
                   <Carousel.Item key={index}>
                     {image.includes('webm') ? (
-                      <video width="100%" autoPlay={true} muted={true} loop={true}>
-                        <source src={image} type="video/webm" />
-                      </video>
+                      <LazyVideo src={image} />
                     ) : (
                       <img
                         alt="First slide"

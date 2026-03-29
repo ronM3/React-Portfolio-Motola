@@ -118,7 +118,14 @@ export const Footer = forwardRef((props, contactsSection) => {
             </div>
           </Col>
         </Row>
-        <img src={footer_img1} alt="contacts" className="contacts--img" />
+        <img
+          src={footer_img1}
+          alt=""
+          className="contacts--img"
+          width="320"
+          height="320"
+          loading="lazy"
+        />
         <p className="footer-copyright">
           Copyright 2022. All Rights Reserved &copy; Ron Motola
         </p>

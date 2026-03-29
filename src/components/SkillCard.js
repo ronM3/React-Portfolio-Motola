@@ -7,8 +7,8 @@ export const SkillCard = ({ skill }) => {
       <img
         className="skill_img"
         src={skill.img}
-        alt="skill"
-        width= "50%"
+        alt={skill.name}
+        loading="lazy"
       />
       <h3 className="skill_name">{skill.name}</h3>
     </div>

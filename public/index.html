@@ -5,14 +5,76 @@
   <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Ron Motola Full stack developer" />
-  <meta property="og:title" content="ron motola" />
-  <meta property="og:url" content="https://motoladev.com/" />
+
+  <!-- SEO -->
+  <title>Ron Motola | Full Stack Developer</title>
+  <meta name="description" content="Ron Motola is a full-stack developer specialising in React, Node.js, Angular and modern web technologies. Browse projects, skills, and get in touch." />
+  <link rel="canonical" href="https://motoladev.com/" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:description" content="React portfolio, web developer"/>
+  <meta property="og:url" content="https://motoladev.com/" />
+  <meta property="og:title" content="Ron Motola | Full Stack Developer" />
+  <meta property="og:description" content="Ron Motola is a full-stack developer specialising in React, Node.js, Angular and modern web technologies. Browse projects, skills, and get in touch." />
+  <meta property="og:image" content="https://motoladev.com/logo.png" />
+  <meta property="og:image:width" content="192" />
+  <meta property="og:image:height" content="192" />
+  <meta property="og:site_name" content="Motola Dev" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Ron Motola | Full Stack Developer" />
+  <meta name="twitter:description" content="Ron Motola is a full-stack developer specialising in React, Node.js, Angular and modern web technologies." />
+  <meta name="twitter:image" content="https://motoladev.com/logo.png" />
+
+  <!-- PWA -->
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <title>Motola Dev</title>
+
+  <!-- Google Fonts: preconnect then load only families actually used in CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Mansalva&family=Poppins:wght@400;500;600;700&display=swap" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://motoladev.com/#person",
+        "name": "Ron Motola",
+        "url": "https://motoladev.com/",
+        "jobTitle": "Full Stack Developer",
+        "description": "Full-stack developer specialising in React, Node.js, Angular and modern web technologies.",
+        "sameAs": [
+          "https://www.linkedin.com/in/ron-motola",
+          "https://github.com/ronM3"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://motoladev.com/#website",
+        "url": "https://motoladev.com/",
+        "name": "Motola Dev",
+        "description": "Portfolio of Ron Motola, Full Stack Developer",
+        "publisher": { "@id": "https://motoladev.com/#person" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://motoladev.com/#webpage",
+        "url": "https://motoladev.com/",
+        "name": "Ron Motola | Full Stack Developer",
+        "isPartOf": { "@id": "https://motoladev.com/#website" },
+        "about": { "@id": "https://motoladev.com/#person" },
+        "description": "Ron Motola's portfolio: React and Node.js projects, full-stack skills, and contact information."
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>

@@ -35,7 +35,15 @@ export const Header = forwardRef((props, homeSection) => {
             </div>
           </Col>
           <Col xs={12} md={6} xl={5}>
-            <img src={headerImg} alt="header" />
+            <img
+              src={headerImg}
+              alt="Rocket illustration"
+              width="247"
+              height="247"
+              fetchpriority="high"
+              loading="eager"
+              style={{ display: "block" }}
+            />
           </Col>
         </Row>
       </Container>

@@ -4,12 +4,20 @@
   z-index: 0;
   position: relative;
   color: #fff;
+  overflow: hidden;
+}
+.banner__particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 .banner > .container {   
   align-items: baseline;
   flex-wrap: inherit;
   justify-content: space-between;
   padding-top: 30vh;
+  position: relative;
+  z-index: 2;
 }
 .main-text {
   max-width: 617px;
@@ -128,4 +136,9 @@
     justify-content: space-between;
     padding-top: 0;
   }
+
+  .main-text h1 {
+    padding: 0px 4px;
+    line-height: 100%;
+}
 }

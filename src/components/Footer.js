@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { forwardRef } from "react";
 import "../styles/footer.css";
@@ -7,16 +6,8 @@ import Contacts from "./Contacts";
 import CheckMobileScreen from "./feature/checkMobileScreen";
 
 export const Footer = forwardRef((props, contactsSection) => {
-  const [isMobile, setIsMobile] = useState(false);
-  const width = CheckMobileScreen();
+  const isMobile = CheckMobileScreen();
 
-  useEffect(() => {
-    if (width) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  }, [width]);
   return (
     <footer className="footer" id="contacts" ref={contactsSection}>
       <Container>

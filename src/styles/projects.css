@@ -109,7 +109,7 @@ a.live_button.s {
 /* media quries */
 @media only screen and (max-width: 768px) {
   .project-text {
-    padding: 10px;
+    padding-bottom: 10px;
   }
   .live_button{
         padding: 0.6rem 0.9rem;

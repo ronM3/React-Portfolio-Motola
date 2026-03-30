@@ -12,42 +12,62 @@ import mysql from '../assets/img/mysql.svg'
 export const skillsData = [
     {
         img: html_img,
-        name: 'HTML'
+        name: 'HTML',
+        width: 256,
+        height: 290
     },
     {
         img: css_img,
-        name: 'CSS'
+        name: 'CSS',
+        width: 256,
+        height: 290
     },
     {
         img: javascript_img,
-        name: 'Javascript'
+        name: 'Javascript',
+        width: 256,
+        height: 256
     },
     {
         img: typescript_img,
-        name: 'Typescript'
+        name: 'Typescript',
+        width: 256,
+        height: 256
     },
     {
         img: react_img,
-        name: 'React'
+        name: 'React',
+        width: 256,
+        height: 228
     },
     {
         img: bootstrap_img,
-        name: 'Bootstrap'
+        name: 'Bootstrap',
+        width: 256,
+        height: 256
     },
     {
         img: nodejs,
-        name: 'nodejs'
+        name: 'nodejs',
+        width: 256,
+        height: 289
     },
     {
         img: npm,
-        name: 'Npm'
+        name: 'Npm',
+        width: 2500,
+        height: 2500
     },
     {
         img: angular,
-        name: 'Angular'
+        name: 'Angular',
+        width: 256,
+        height: 272
     },
     {
         img: mysql,
-        name: 'MySQL'
+        name: 'MySQL',
+        width: 256,
+        height: 252
     }
 ]

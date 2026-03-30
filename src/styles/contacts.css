@@ -237,9 +237,10 @@
     align-self: center;
   }
   .contacts--img {
-    width: 199px;
-    opacity: 0.6;
-    left: 113px;
+        width: auto;
+        opacity: 0.6;
+        left: 103px;
+        max-height: 209px;
   }
   .error_msg {
     position: inherit;

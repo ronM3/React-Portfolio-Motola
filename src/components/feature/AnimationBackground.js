@@ -2,20 +2,15 @@ import React from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
-export const AnimationBackground = ({}) => {
+export const AnimationBackground = () => {
   const options = {
     autoPlay: true,
+    pauseOnBlur: true,
+    pauseOnOutsideViewport: true,
     fullScreen: {
-      enable: true,
+      enable: false,
     },
-    style: {
-      width: "100%",
-      height: "100%",
-      position: "absolute",
-      top: "0",
-      left: "0",
-    },
-    fpsLimit: 120,
+    fpsLimit: 60,
     interactivity: {
       detect_on: "canvas",
       events: {
@@ -85,7 +80,7 @@ export const AnimationBackground = ({}) => {
     detectRetina: true,
   };
   return (
-    <div>
+    <div className="banner__particles" aria-hidden="true">
       <Particles id="tsparticles" init={loadFull} options={options} />
     </div>
   );

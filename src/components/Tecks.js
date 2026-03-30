@@ -1,7 +1,7 @@
 import React from "react";
 import frontend from "../assets/frontend.webp";
 import backend from "../assets/backend.webp";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 export const Tecks = () => {
   return (

@@ -1,16 +1,43 @@
-import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { forwardRef, lazy, Suspense, useEffect, useState } from "react";
 import headerImg from "../assets/Rocket-Black5.webp";
 import { ArrowRightCircle } from "react-bootstrap-icons";
-import { AnimationBackground } from "./feature/AnimationBackground";
 import "../styles/banner.css";
-import { forwardRef } from "react";
+
+const AnimationBackground = lazy(() =>
+  import("./feature/AnimationBackground").then((module) => ({
+    default: module.AnimationBackground,
+  }))
+);
 
 export const Header = forwardRef((props, homeSection) => {
+  const [showParticles, setShowParticles] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return undefined;
+    }
+
+    if (typeof window.requestIdleCallback === "function") {
+      const idleId = window.requestIdleCallback(() => setShowParticles(true), {
+        timeout: 1200,
+      });
+
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = window.setTimeout(() => setShowParticles(true), 400);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
   return (
     <section className="banner" id="home" ref={homeSection}>
+      {showParticles ? (
+        <Suspense fallback={null}>
+          <AnimationBackground />
+        </Suspense>
+      ) : null}
       <Container>
-        <AnimationBackground />
         <Row className="align-items-center">
           <Col xs={12} md={6} xl={7}>
             <div className="main-text">
@@ -40,8 +67,9 @@ export const Header = forwardRef((props, homeSection) => {
               alt="Rocket illustration"
               width="247"
               height="247"
-              fetchpriority="high"
+              fetchPriority="high"
               loading="eager"
+              decoding="async"
               style={{ display: "block" }}
             />
           </Col>

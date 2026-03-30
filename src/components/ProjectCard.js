@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import Fade from "./feature/Fade";
@@ -41,7 +41,6 @@ const LazyVideo = ({ src }) => {
       ref={containerRef}
       style={{
         aspectRatio: "16 / 9",
-        background: "#1a1a1a",
         display: "block",
         width: "100%",
       }}
@@ -101,18 +100,21 @@ export const ProjectCard = ({ project }) => {
               id="carouselP"
               fade
             >
-              {project?.images.map((image, index) => {
+              {project?.images.map((media, index) => {
                 return (
                   <Carousel.Item key={index}>
-                    {image.includes('webm') ? (
-                      <LazyVideo src={image} />
+                    {media.type === "video" ? (
+                      <LazyVideo src={media.src} />
                     ) : (
                       <img
-                        alt="First slide"
-                        src={image}
-                        height="100%"
+                        alt={`${project.title} preview ${index + 1}`}
+                        src={media.src}
+                        width={media.width}
+                        height={media.height}
                         className="d-block w-100"
                         loading="lazy"
+                        decoding="async"
+                        style={{ height: "auto" }}
                       />
                     )}
                   </Carousel.Item>

@@ -21,7 +21,7 @@ export const projects = [
         id: 1,
         title: "PixaImage - Full Stack Gallery",
         description:"Developed a full stack project built with Node.js, Express, React (Vite), and Redux Toolkit. The project aims to display and manage a collection of photos with pagination, sorting, caching, and a user-friendly interface. The project follows a a layered architecture approach to separate concerns and improve maintainability.",
-        images: [`${pixaImages}`],
+        images: [{ src: pixaImages, type: "video" }],
         live: 'https://pixaimage.onrender.com/',
         repository: 'https://github.com/ronM3/pixaImage-react-node'
       },
@@ -29,7 +29,7 @@ export const projects = [
         id: 2,
         title: "Weatherwise Forecast",
         description:"Developed weather forecast app using HTML5 Geolocation, OpenWeatherMap,Weatherbit APIs and Vanilla-javascript, with a user-friendly UI, responsive design,dynamic background, 7-day forecast, and data caching for optimized performance.The project follows a Module Revealing Architecture pattern for clear code organization and modularity.",
-        images: [`${weather_project}`],
+        images: [{ src: weather_project, type: "video" }],
         live: 'https://weatherwise.onrender.com/',
         repository: 'https://github.com/ronM3/Wether-Forecast-vanila-javascript'
       },
@@ -39,7 +39,12 @@ export const projects = [
         description:
           "e commerce shop build with angular & rxjs, Backend: Node.js, Express, bcrypt, mysql. Frontend: Angular, RxJs, Reactive forms, CSS/Bootstrap, file upload feature and error handler.",
         user: 'Demo User: got@gmail.com Password: 123456',
-        images: [`${freshmarket11}`, `${freshmarket2}`, `${freshmarket3}`, `${freshmarket4}`],
+        images: [
+          { src: freshmarket11, type: "video" },
+          { src: freshmarket2, type: "image", width: 1200, height: 563 },
+          { src: freshmarket3, type: "image", width: 1200, height: 564 },
+          { src: freshmarket4, type: "image", width: 1917, height: 902 },
+        ],
         live: 'https://freshmarketapp.herokuapp.com/',
         repository: 'https://github.com/ronM3/Freshmarket-shop'
       },
@@ -49,7 +54,12 @@ export const projects = [
         description:
           "Vacations Tagging system, login to watch vacations offers, tag them and watch how many followers each one has, every change in the system is in real time using Socket.IO. this project built with React, Node.js, and mySql",
           user: 'Demo User: tony, Password: 123456',
-          images: [`${vacation}`, `${vacation2}`, `${vacation1}`, `${vacation3}`],
+          images: [
+            { src: vacation, type: "image", width: 693, height: 326 },
+            { src: vacation2, type: "image", width: 1200, height: 564 },
+            { src: vacation1, type: "image", width: 1200, height: 564 },
+            { src: vacation3, type: "image", width: 1918, height: 900 },
+          ],
           live: 'https://uvacations.herokuapp.com/',
           repository: 'https://github.com/ronM3/vacations-client'
       },
@@ -58,7 +68,11 @@ export const projects = [
         title: "Customizable Do List",
         description:
           "A Friendly and customizable To-Do List where you can add, delete or edit tasks built with Vanilla JavaScript, HTML, CSS, Bootstrap. Project is also mobile responsive and dark mode available also using external libraries.",
-          images: [`${todo}`, `${todolist2}`, `${todolist3}`],
+          images: [
+            { src: todo, type: "video" },
+            { src: todolist2, type: "image", width: 693, height: 326 },
+            { src: todolist3, type: "image", width: 1200, height: 564 },
+          ],
           live: 'https://customtodo.onrender.com/',
           repository: 'https://github.com/ronM3/Customizable-To-Do-List'
       },
@@ -67,7 +81,10 @@ export const projects = [
         title: "Node.js - CSV Parser",
         description:
           "API endpoint that parses and processes CSV files line by line as array of arrays, API endpoint that requires data from a given api using specific id and return a CSV file with the data. Project built with Node.js, express also added persistent caching for API and custom error handler.",
-          images: [`${csv_parser2}`,`${csv_parser}`],
+          images: [
+            { src: csv_parser2, type: "video" },
+            { src: csv_parser, type: "video" },
+          ],
           repository: 'https://github.com/ronM3/Node.js-csv-reader'
       },
 ]

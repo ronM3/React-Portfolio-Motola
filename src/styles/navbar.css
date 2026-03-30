@@ -177,7 +177,7 @@ nav [aria-expanded="true"] .navbar-toggler-icon {
     height: 10vh;
   }
   nav.scrolled {
-    height: 54px;
+    height: 65px;
   }
   .logo_container h3 {
     font-size: 35px;

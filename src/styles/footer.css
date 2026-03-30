@@ -20,6 +20,10 @@
     color: #9450ff;
     transition: 200ms ease-in;
   }
+  .footer_link_text {
+    display: inline-block;
+    cursor: default;
+  }
   .footer_p {
     font-size: 24px;
     color: #fff;

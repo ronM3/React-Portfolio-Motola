@@ -105,51 +105,61 @@ const Contacts = () => {
           ) : (
             <form ref={form} onSubmit={sendEmail}>
               <div className="input-container">
-                <label htmlFor="Name" className="input-label">
+                <label htmlFor="name" className="input-label">
                   Name
                 </label>
                 <input
+                  id="name"
                   placeholder="John"
                   type="text"
                   name="name"
                   className="form-input input_box"
                   value={name}
+                  autoComplete="name"
+                  aria-invalid={nameError}
+                  aria-describedby={nameError ? "name-error" : undefined}
                   onChange={(e) => setName(e.target.value)}
                 />
                 {nameError && (
-                  <span className="error_msg">The name field is required</span>
+                  <span id="name-error" className="error_msg">The name field is required</span>
                 )}
               </div>
               <div className="input-container">
-                <label htmlFor="Email" className="input-label">
+                <label htmlFor="email" className="input-label">
                   Email
                 </label>
                 <input
+                  id="email"
                   placeholder="John@doe.com"
                   type="email"
                   name="email"
                   className="form-input input_box"
                   value={email}
+                  autoComplete="email"
+                  aria-invalid={emailError}
+                  aria-describedby={emailError ? "email-error" : undefined}
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 {emailError && (
-                  <span className="error_msg">The email field is required</span>
+                  <span id="email-error" className="error_msg">The email field is required</span>
                 )}
               </div>
               <div className="input-container">
-                <label htmlFor="Message" className="input-label">
+                <label htmlFor="message" className="input-label">
                   Message
                 </label>
                 <textarea
+                  id="message"
                   placeholder="Type your message...."
-                  type="text"
                   name="message"
                   className="form-message message_box"
                   value={message}
+                  aria-invalid={msgError}
+                  aria-describedby={msgError ? "message-error" : undefined}
                   onChange={(e) => setMessage(e.target.value)}
                 />
                 {msgError && (
-                  <span className="error_msg message">
+                  <span id="message-error" className="error_msg message">
                     The message field is required
                   </span>
                 )}

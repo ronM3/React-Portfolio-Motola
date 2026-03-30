@@ -3,6 +3,13 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
 export const AnimationBackground = () => {
+  const isMobile =
+    typeof window !== "undefined" &&
+    window.matchMedia("(max-width: 768px)").matches;
+  const canHover =
+    typeof window !== "undefined" &&
+    window.matchMedia("(hover: hover)").matches;
+
   const options = {
     autoPlay: true,
     pauseOnBlur: true,
@@ -10,13 +17,13 @@ export const AnimationBackground = () => {
     fullScreen: {
       enable: false,
     },
-    fpsLimit: 60,
+    fpsLimit: isMobile ? 40 : 60,
     interactivity: {
       detect_on: "canvas",
       events: {
-        onclick: { enable: true, mode: "push" },
+        onclick: { enable: !isMobile, mode: "push" },
         onhover: {
-          enable: true,
+          enable: canHover,
           mode: "attract",
           parallax: { enable: false, force: 60, smooth: 10 },
         },
@@ -31,7 +38,7 @@ export const AnimationBackground = () => {
       color: { value: "#ffffff" },
       line_linked: {
         color: "#591dcf",
-        distance: 150,
+        distance: isMobile ? 120 : 150,
         enable: true,
         opacity: 0.5,
         width: 3.3,
@@ -43,10 +50,13 @@ export const AnimationBackground = () => {
         enable: true,
         out_mode: "out",
         random: false,
-        speed: 1,
+        speed: isMobile ? 0.8 : 1,
         straight: false,
       },
-      number: { density: { enable: true, value_area: 800 }, value: 40 },
+      number: {
+        density: { enable: true, value_area: isMobile ? 700 : 800 },
+        value: isMobile ? 24 : 40,
+      },
       opacity: {
         anim: { enable: false, opacity_min: 0.1, speed: 1, sync: false },
         random: false,
@@ -67,7 +77,7 @@ export const AnimationBackground = () => {
       size: {
         anim: { enable: false, size_min: 0.1, speed: 40, sync: false },
         random: true,
-        value: 5,
+        value: isMobile ? 4 : 5,
       },
     },
     polygon: {

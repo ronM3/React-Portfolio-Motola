@@ -173,8 +173,9 @@ nav [aria-expanded="true"] .navbar-toggler-icon {
 
 @media screen and (max-width: 768px) {
   nav {
-    align-items: center;
-    height: 10vh;
+        align-items: center;
+        height: 68px;
+        padding: 10px 8px 10px 10px;
   }
   nav.scrolled {
     height: 65px;

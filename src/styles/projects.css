@@ -57,6 +57,9 @@
 a.live_button.delete{
   text-decoration: line-through #9450ff 3px;
 }
+.live_button.delete {
+  cursor: default;
+}
 .live_button:hover {
   box-shadow: inset 400px 0 0 0 #ffffff;
   color: black;

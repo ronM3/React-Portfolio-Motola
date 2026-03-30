@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export const ScrollTopButton = () => {
   const [visible, setVisible] = useState(false);
 
-  const toggleVisible = () => {
-    const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 300) {
-      setVisible(true);
-    } else if (scrolled <= 300) {
-      setVisible(false);
-    }
-  };
+  useEffect(() => {
+    const toggleVisible = () => {
+      const nextVisible = document.documentElement.scrollTop > 300;
+      setVisible((prevVisible) =>
+        prevVisible === nextVisible ? prevVisible : nextVisible
+      );
+    };
+
+    window.addEventListener("scroll", toggleVisible, { passive: true });
+    toggleVisible();
+
+    return () => window.removeEventListener("scroll", toggleVisible);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -18,11 +24,15 @@ export const ScrollTopButton = () => {
     });
   };
 
-  window.addEventListener("scroll", toggleVisible);
   return (
     <div className="top-to-btm">
       {visible && (
-        <a onClick={scrollToTop} className="icon-position icon-style">
+        <button
+          type="button"
+          onClick={scrollToTop}
+          className="icon-position icon-style"
+          aria-label="Scroll back to top"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -36,7 +46,7 @@ export const ScrollTopButton = () => {
               d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"
             ></path>
           </svg>
-        </a>
+        </button>
       )}
     </div>
   );

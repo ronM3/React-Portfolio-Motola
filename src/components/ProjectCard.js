@@ -82,9 +82,9 @@ export const ProjectCard = ({ project }) => {
               {project.live ? <a className="live_button" href={project.live}>
                   Visit Live
                 </a> :
-                <a className="live_button delete">
+                <span className="live_button delete" aria-disabled="true">
                   Visit Live
-                </a>}
+                </span>}
               <a className="live_button s" href={project.repository}>
                 Source Code
               </a>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { forwardRef } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
@@ -11,6 +11,7 @@ import Fade from "./feature/Fade";
 
 export const Skills = forwardRef((props, skillsSection) => {
   const [scrolled, setScrolled] = useState(false);
+  const revealRef = useRef(null);
 
   const responsive = {
     superLargeDesktop: {
@@ -32,23 +33,31 @@ export const Skills = forwardRef((props, skillsSection) => {
   };
 
   useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY >= 530) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", onScroll);
+    const element = revealRef.current;
+    if (!element || !("IntersectionObserver" in window)) {
+      setScrolled(true);
+      return undefined;
+    }
 
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [scrolled]);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setScrolled(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -10% 0px" }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section id="skills" className='skills' ref={skillsSection}>
       <Container style={{ overflow: "hidden" }}>
         <Tecks/>
-        <Row className="align-items-center">
+        <Row className="align-items-center" ref={revealRef}>
           <Fade up when={scrolled}>
             <Col xs={12} md={6} xl={12}>
               <div className="skill_box">

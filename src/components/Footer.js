@@ -7,6 +7,7 @@ import CheckMobileScreen from "./feature/checkMobileScreen";
 
 export const Footer = forwardRef((props, contactsSection) => {
   const isMobile = CheckMobileScreen();
+  const serviceTextClassName = "footer_link footer_link_text";
 
   return (
     <footer className="footer" id="contacts" ref={contactsSection}>
@@ -18,6 +19,7 @@ export const Footer = forwardRef((props, contactsSection) => {
             <a
               className={isMobile ? "socialIcon" : "footer_link"}
               href="https://www.linkedin.com/in/ron-motola"
+              aria-label="Visit Ron Motola on LinkedIn"
             >
               <i>
                 <svg
@@ -38,6 +40,7 @@ export const Footer = forwardRef((props, contactsSection) => {
             <a
               className={isMobile ? "socialIcon" : "footer_link"}
               href="https://github.com/ronM3"
+              aria-label="Visit Ron Motola on GitHub"
             >
               <i>
                 <svg
@@ -58,6 +61,7 @@ export const Footer = forwardRef((props, contactsSection) => {
             <a
               className={isMobile ? "socialIcon" : "footer_link"}
               href="https://www.facebook.com/ron.motola.1"
+              aria-label="Visit Ron Motola on Facebook"
             >
               <i>
                 <svg
@@ -78,6 +82,7 @@ export const Footer = forwardRef((props, contactsSection) => {
             <a
               className={isMobile ? "socialIcon" : "footer_link"}
               href="mailto:ron00003@gmail.com"
+              aria-label="Send Ron Motola an email"
             >
               <i>
                 <svg
@@ -104,8 +109,8 @@ export const Footer = forwardRef((props, contactsSection) => {
               <a className="footer_link" href="#projects">
                 All Projects
               </a>
-              <a className="footer_link">Collaboration</a>
-              <a className="footer_link">Coding</a>
+              <span className={serviceTextClassName}>Collaboration</span>
+              <span className={serviceTextClassName}>Coding</span>
             </div>
           </Col>
         </Row>

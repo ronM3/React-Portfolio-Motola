@@ -56,7 +56,7 @@ export const Header = forwardRef((props, homeSection) => {
               </p>
               <div className="bt_container">
                 <a href="#contacts" className="banner_cta">
-                  Let's Connect <ArrowRightCircle size={25} />
+                  Let's Connect <ArrowRightCircle size={25} aria-hidden="true" />
                 </a>
               </div>
             </div>

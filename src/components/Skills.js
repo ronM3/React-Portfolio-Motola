@@ -59,7 +59,7 @@ export const Skills = forwardRef((props, skillsSection) => {
         <Tecks/>
         <Row className="align-items-center" ref={revealRef}>
           <Fade up when={scrolled}>
-            <Col xs={12} md={6} xl={12}>
+            <Col xl={12}>
               <div className="skill_box">
               <h3>Programming languages & Technologies</h3>
                 <p className="skill-p">
@@ -76,7 +76,7 @@ export const Skills = forwardRef((props, skillsSection) => {
                   className="skills-slider"
                 >
                   {skillsData.map((skill) => {
-                    return <SkillCard skill={skill} key={skill.name} alt />;
+                    return <SkillCard skill={skill} key={skill.name} />;
                   })}
                 </Carousel>
               </div>

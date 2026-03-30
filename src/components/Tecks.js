@@ -17,6 +17,8 @@ export const Tecks = () => {
               width="512"
               height="512"
               loading="lazy"
+              decoding="async"
+              fetchPriority="low"
               style={{ height: "auto" }}
             />
             <h3>Front End</h3>
@@ -31,6 +33,8 @@ export const Tecks = () => {
               width="512"
               height="512"
               loading="lazy"
+              decoding="async"
+              fetchPriority="low"
               style={{ height: "auto" }}
             />
             <h3>Back End</h3>

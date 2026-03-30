@@ -40,6 +40,8 @@ export const ScrollTopButton = () => {
             fill="currentColor"
             className="bi bi-chevron-up white"
             viewBox="0 0 16 16"
+            aria-hidden="true"
+            focusable="false"
           >
             <path
               fillRule="evenodd"

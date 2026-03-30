@@ -9,6 +9,7 @@ export const SkillCard = ({ skill }) => {
         height={skill.height}
         loading="lazy"
         decoding="async"
+        fetchPriority="low"
         style={{ height: "auto" }}
       />
       <h3 className="skill_name">{skill.name}</h3>

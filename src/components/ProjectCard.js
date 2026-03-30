@@ -65,13 +65,13 @@ const LazyVideo = ({ src }) => {
 
 export const ProjectCard = ({ project }) => {
   const [index, setIndex] = useState(0);
-  const handleSelect = (selectedIndex, e) => {
+  const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
   return (
     <Container>
       <Row className="mt-1 py-3">
-        <Col xs={12} md={6} lg={4}>
+        <Col lg={4}>
           <Fade left duration={1000} delay={500} distance="30px">
             <div className="project-text">
               <div className="project-p">
@@ -91,7 +91,7 @@ export const ProjectCard = ({ project }) => {
             </div>
           </Fade>
         </Col>
-        <Col xs={12} md={6} lg={10} xl={8} className="carusel_item">
+        <Col lg={8} className="carusel_item">
           <Fade left duration={1000} delay={1000} distance="40px">
             <Carousel
               activeIndex={index}
@@ -114,6 +114,7 @@ export const ProjectCard = ({ project }) => {
                         className="d-block w-100"
                         loading="lazy"
                         decoding="async"
+                        fetchPriority="low"
                         style={{ height: "auto" }}
                       />
                     )}

@@ -57,7 +57,7 @@ export const NavBar = forwardRef((props, refs) => {
           aria-controls="main-navigation"
           aria-label={isNavExpanded ? "Close navigation menu" : "Open navigation menu"}
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon" aria-hidden="true"></span>
         </button>
         <ul
           id="main-navigation"

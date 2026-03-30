@@ -18,7 +18,7 @@ export const Projects = forwardRef((props, projectsSection) => {
           </p>
           {projects.map((project, index) => {
             return (
-              <Col className="mt-lg-5 py-3" sm={12} md={6} lg={8} xl={10} key={index}>
+              <Col className="mt-lg-5 py-3" xl={12} key={index}>
                 <ProjectCard project={project} key={project.id} />
               </Col>
             );

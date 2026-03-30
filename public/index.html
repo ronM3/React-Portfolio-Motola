@@ -33,10 +33,12 @@
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-  <!-- Google Fonts: preconnect then load only families actually used in CSS -->
+  <!-- Google Fonts: preconnect + async load (non-blocking). display=swap means text shows in
+       fallback font immediately; custom fonts swap in once downloaded. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Mansalva&family=Poppins:wght@400;500;600;700&display=swap" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bangers&family=Mansalva&family=Poppins:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Mansalva&family=Poppins:wght@400;500;600;700&display=swap" /></noscript>
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
